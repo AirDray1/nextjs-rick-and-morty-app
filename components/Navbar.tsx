@@ -14,50 +14,26 @@ export default function Navbar() {
           <ul className="menu absolute flex flex-col h-[90vh] w-full top-[10vh] left-[-100%] bg-neutral-50 transition-all duration-300 h-hsv peer-checked:left-0 z-999
           xl:static xl:h-fit xl:flex-row xl:justify-end xl:gap-8 ">
             <li className="menu-item flex h-fit w-full xl:w-fit">
-              <Link href="/" className="w-full text-black text-2xl p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">Home</Link>
+              <Link href="/" className="w-full font-sans text-2xl font-normal text-gray-900 p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
+              xl:px-0 xl:text-lg xl:font-semibold">Home</Link>
             </li>
             <li className="menu-item flex h-fit w-full xl:w-fit">
-              <Link href="/characters" className="w-full text-black text-2xl p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">Characters</Link>
+              <Link href="/characters" className="w-full font-sans text-2xl font-normal text-gray-900 p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
+              xl:px-0 xl:text-lg xl:font-semibold">Characters</Link>
             </li>
             <li className="menu-item flex h-fit w-full xl:w-fit">
-              <Link href="/about" className="w-full text-black text-2xl p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">About</Link>
+              <Link href="/about" className="w-full font-sans text-2xl font-normal text-gray-900 p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
+              xl:px-0 xl:text-lg xl:font-semibold">About</Link>
             </li>
             <li className="menu-item flex h-fit w-full xl:w-fit">
-              <Link href="/contact" className="w-full text-black text-2xl p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">Contacts</Link>
+              <Link href="/contact" className="w-full font-sans text-2xl font-normal text-gray-900 p-2 border-b-1 hover:text-amber-600 transition-all duration-300 xl:border-none 
+              xl:px-0 xl:text-lg xl:font-semibold">Contacts</Link>
             </li>
           </ul>
           <Link href={`/`}>
-            <img src="/logo.png" alt="logo" className="logo w-12 h-12 rounded-full border-solid"/>
+            <img src="/logo.png" alt="logo" className="logo w-12 h-12 rounded-full border-solid lg:"/>
           </Link>
         </div>
     </nav>
   );
 }
-
-          {/* <ul className="flex justify-end gap-8 w-full menu bg-neutral-50 transition-all duration-300 h-hsv peer-checked:left-0 z-999">
-            <li className="menu-item flex h-fit w-fit">
-              <Link href="/" className="w-fit text-black text-2xl py-2 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">Home</Link>
-            </li>
-            <li className="menu-item flex h-fit w-fit">
-              <Link href="/characters" className="w-full text-black text-2xl py-2 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">Characters</Link>
-            </li>
-            <li className="menu-item flex h-fit w-fit">
-              <Link href="/about" className="w-fit text-black text-2xl py-2 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">About</Link>
-            </li>
-            <li className="menu-item flex h-fit w-fit">
-              <Link href="/contact" className="w-fit text-black text-2xl py-2 hover:text-amber-600 transition-all duration-300 xl:border-none 
-              xl:px-0">Contacts</Link>
-            </li>
-          </ul>
-          <Link href={`/`}>
-            <img src="/logo.png" alt="logo" className="logo w-12 h-12 rounded-full border-solid"/>
-          </Link>
-        </div>
-    </nav> */}

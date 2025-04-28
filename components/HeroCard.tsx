@@ -4,12 +4,9 @@ import Link from "next/link";
 
 export default function HeroCard({ user }: {user: Character}) {
   return (
-      <div className="flex flex-col items-stretch text-white px-5 py-3
-      sm:flex-row sm:w-[600px] sm:h-52">
-        <img src={user.image} alt={user.name} className="max-h-75 w-[50%-30px] object-cover object-center rounded-t-lg
-        sm:w-56 sm:h-full sm:rounded-l-lg sm:rounded-r-none" />
-        <div className="flex flex-col w-full rounded-b-lg py-4 px-2 bg-gray-700
-        sm:rounded-bl-none sm:rounded-tr-lg">
+      <div className="flex flex-col items-stretch text-white px-5 py-3 sm:flex-row sm:w-[600px] sm:h-52">
+        <img src={user.image} alt={user.name} className="max-h-75 w-[50%-30px] object-cover object-center rounded-t-lg sm:w-56 sm:h-full sm:rounded-l-lg sm:rounded-r-none" />
+        <div className="flex flex-col w-full rounded-b-lg py-4 px-2 bg-gray-700 sm:rounded-bl-none sm:rounded-tr-lg">
           <Link href={`/characters/${user.id}`}>
             <h1 className="font-bold text-3xl">{user.name}</h1>
           </Link>

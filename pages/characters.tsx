@@ -64,14 +64,14 @@ export default function Characters({ initialUsers, c_length, l_length, e_length 
           <SearchBar onSearch={handleSearch} />
           <StatusFilter selectedStatus={statusFilter} onStatusChange={handleStatusChange} />
         </div>
-        <div className="catalog block bg-sky-950">
+        <div className="catalog flex flex-col items-center justify-center bg-sky-950">
 
           {loading && <p className="text-center text-gray-600">🔄 Завантаження...</p>}
 
-          <div className="flex flex-col items-stretch gap-5 py-3 px-5 first:pt-5 last:pb-5 text-white">
+          <div className="flex flex-col justify-center items-center w-fit gap-5 py-3 px-4 first:pt-5 last:pb-5 text-white sm:flex-row sm:flex-wrap">
             {users.length > 0 ? (
               users.map((user) => (
-                <div key={user.id} className="bg-gray-700 shadow-md p-4 rounded-lg text-center">
+                <div key={user.id} className="bg-gray-700 shadow-md p-4 rounded-lg text-center w-2xs">
                   <img src={user.image} alt={user.name} className="w-24 h-24 mx-auto rounded-full" />
                   <h3 className="mt-2 text-lg font-semibold">{user.name}</h3>
                   <Link href={`/characters/${user.id}`} className="text-blue-600 hover:underline">
@@ -83,7 +83,7 @@ export default function Characters({ initialUsers, c_length, l_length, e_length 
               <p className="text-center text-gray-600">❌ Нічого не знайдено</p>
             )}
           </div>
-          <div className="flex justify-between items-center mt-2 gap-4 text-gray-800 text-center">
+          <div className="container flex justify-between items-center mt-2 gap-4 text-gray-800 text-center">
             <button
               onClick={handlePrevPage}
               disabled={!hasPrev}
