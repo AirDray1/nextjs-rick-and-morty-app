@@ -5,10 +5,10 @@ import { useState } from "react";
 import StatusFilter from "@/components/StatusFilter";
 import SearchBar from "@/components/SearchBar";
 import { GetServerSideProps } from "next";
-import { getFooterData } from "./api/api_info";
+import { getFooterData } from "./api/getFooterData";
 import { SpriteIcons } from "@/public/SpriteIcons";
 
-export default function Characters({ initialUsers, c_length, l_length, e_length }: { initialUsers: Character[], c_length: number, l_length: number, e_length: number }) {
+export default function Characters({ initialUsers }: { initialUsers: Character[] }) {
     const [users, setUsers] = useState<Character[]>(initialUsers);
     const [loading, setLoading] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
@@ -58,7 +58,7 @@ export default function Characters({ initialUsers, c_length, l_length, e_length 
     };
   
     return (
-      <Layout title="Characters" c_length={c_length} l_length={l_length} e_length={e_length}>
+      <Layout title="Characters">
         <div className="main-wrapper flex flex-col gap-5 px-5 py-3">
           <h1 className="text-5xl/13 font-bold text-gray-800">Characters</h1>
           <SearchBar onSearch={handleSearch} />
@@ -106,10 +106,3 @@ export default function Characters({ initialUsers, c_length, l_length, e_length 
       </Layout>
     );
   }
-  
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch("https://rickandmortyapi.com/api/character?page=1");
-  const data = await response.json();
-  const { c_length, l_length, e_length } = await getFooterData();
-  return { props: { initialUsers: data.results || [], c_length, l_length, e_length } };
-};

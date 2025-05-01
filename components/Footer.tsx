@@ -2,7 +2,7 @@ import { SpriteIcons } from "@/public/SpriteIcons";
 import { SpriteSheet } from "@/public/SpriteSheet";
 import Link from "next/link";
 
-export default function Footer({c_length, l_length, e_length}: {c_length: number, l_length: number, e_length: number}) {
+export default function Footer({c_length, l_length, e_length}: {c_length?: number, l_length?: number, e_length?: number}) {
     let date = new Date();
     let year = date.getFullYear();
   return (

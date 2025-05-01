@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { getFooterData } from "./api/api_info";
+import { getFooterData } from "./api/getFooterData";
 import { GetStaticProps } from "next";
 import { SpriteIcons } from "@/public/SpriteIcons";
 import { Character } from "./types";

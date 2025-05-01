@@ -1,15 +1,24 @@
+import Layout from "@/components/Layout";
+import { getFooterData } from "@/pages/api/getFooterData";
+import { fetchEpisodes } from "@/pages/api/getCharacterSeries";
+import { Character, Episode } from "@/pages/types";
 import { GetStaticProps } from "next";
-import Layout from "../../components/Layout";
-import { Character, Episode } from "../types";
-import { getFooterData } from "../api/api_info";
+import { useEffect, useState } from "react";
 
 
-export default function characterPage({ character, f_epizode, c_length, l_length, e_length}: {character: Character, f_epizode: Episode, c_length: number, l_length: number, e_length: number}) {
+export default function characterPage({ character, f_epizode}: {character: Character, f_epizode: Episode}) {
+  const [eposodesNames, setEpisodes] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetchEpisodes(character, setEpisodes);
+  })
   return (
-    <Layout title={character.name} c_length={c_length} l_length={l_length} e_length={e_length}>
-      <div className="flex flex-col bg-sky-950 items-stretch text-white p-4">
-        <img src={character.image} alt={character.name} className="w-[50%-30px] rounded-t-lg" />
-        <div className="flex flex-col w-full rounded-b-lg py-4 px-2 bg-gray-700">
+    <Layout title={character.name}>
+      <div className="flex flex-col bg-sky-950 items-stretch text-white p-4 md:flex-row">
+        <div className="card-image">
+          <img src={character.image} alt={character.name} className="w-[50%-30px] h-auto rounded-t-lg md:rounded-bl-lg md:rounded-tr-none" />
+        </div>
+        <div className="flex flex-col w-full rounded-b-lg py-4 px-2 bg-gray-700 md:rounded-bl-none md:rounded-tr-lg">
           <h1 className="font-bold text-3xl">{character.name}</h1>
           {character.status === "Alive" ? 
           <div className="flex gap-2 items-center mt-2">
@@ -28,6 +37,10 @@ export default function characterPage({ character, f_epizode, c_length, l_length
             <span className="title text-gray-400">First seen in:</span>
             <span>{f_epizode.name}</span>
           </div>
+          <div className="flex">
+            <button onClick={() => console.log(character)}>Check</button>
+          </div>
+          {eposodesNames.map(el => <span key={el}>{el}</span>)}
         </div>
       </div>
     </Layout>
